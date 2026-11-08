@@ -22,6 +22,7 @@ try:
     lcd.cursor_pos = (1, 0)
     lcd.write_string(f"Texto: {texto.strip()}")
     print(f"UID: {uid}")
+    print(f"Texto: {texto.strip()}")
 
 finally:
     GPIO.cleanup()
