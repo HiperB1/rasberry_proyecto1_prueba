@@ -14,7 +14,7 @@ async def root():
 @app.get("/leer")
 async def leerEnd():
     datos = leer()
-    return {"status": "lectura exitosa", "datos": "datos"}
+    return {"status": "lectura exitosa", "datos": datos}
 
 @app.post("/escribir")
 async def escribirEnd(datos: escribirDTO):
