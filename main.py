@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from leer import leer, escribir
+from fastapi import FastAPI, WebSocket
+from RFID_services import leer, escribir
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -10,6 +10,15 @@ class escribirDTO(BaseModel):
 @app.get("/")
 async def root():
     return {"message": "Welcome to the RFID API"}
+
+@app.websocket("/scan")
+async def webssocketendpoint(websocket: WebSocket):
+    await websocket.accept()
+    while True:
+        texto = leer()
+        data = await websocket.send_text(texto)
+        await websocket.send_text(f"El texto enviado es: {data}")
+
 
 @app.get("/leer")
 async def leerEnd():

@@ -13,7 +13,7 @@ def leer() -> {str, str}:
         uid, texto = lector.read()      # se bloquea hasta detectar una
         print(f"UID: {uid}")
         print(f"Texto: {texto.strip()}")
-        return {"uid": uid, "texto": texto}
+        return texto
 
     finally:
         GPIO.cleanup()
