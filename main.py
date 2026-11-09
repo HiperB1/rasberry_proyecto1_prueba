@@ -18,7 +18,7 @@ async def leerEnd():
 
 @app.post("/escribir")
 async def escribirEnd(datos: escribirDTO):
-    datos = escribir(datos.texto)
-    return {"status": "escritura exitosa", "datos": datos.texto}
+    datosEs = escribir(datos.texto)
+    return {"status": "escritura exitosa", "datos": datosEs}
 
 

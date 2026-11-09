@@ -19,7 +19,7 @@ def leer() -> {str, str}:
         GPIO.cleanup()
 
 
-def escribir(texto: str) -> str:
+def escribir(texto) -> str:
     lcd = CharLCD('PCF8574', 0x3F, cols=16, rows=2)   # cambia 0x27 si te salió 0x3f
     lector = SimpleMFRC522()
     try:
